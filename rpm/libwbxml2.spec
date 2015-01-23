@@ -1,6 +1,6 @@
 %define _name libwbxml
 Name: libwbxml2
-Version: 0.10.8
+Version: 0.10.8+git1
 Release: 1
 Summary: Library to parse, encode and handle WBXML documents
 Group: System/Libraries
