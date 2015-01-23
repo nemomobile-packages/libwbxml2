@@ -1,12 +1,10 @@
-%define _name libwbxml
 Name: libwbxml2
-Version: 0.10.8+git1
+Version: 0.10.8+git2
 Release: 1
 Summary: Library to parse, encode and handle WBXML documents
 Group: System/Libraries
 License: LGPLv2.1
-Source0: %{_name}-%{version}.tar.gz
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Source0: %{name}-%{version}.tar.gz
 BuildRequires: expat-devel zlib-devel popt-devel
 BuildRequires: pkgconfig(libxml-2.0)
 BuildRequires: cmake
@@ -40,7 +38,7 @@ Requires: %{name} = %{version}-%{release}
 
 
 %prep
-%setup -q -n %{_name}-%{version}
+%setup -q -n %{name}-%{version}
 
 %build
 mkdir build
@@ -52,11 +50,10 @@ make
 %install
 rm -rf %{buildroot}
 make -C build DESTDIR=%{buildroot} install
-
+rm -rf build
 
 %clean
 rm -rf %{buildroot}
-
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
